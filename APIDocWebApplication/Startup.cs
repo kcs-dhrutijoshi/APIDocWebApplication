@@ -43,7 +43,7 @@ namespace APIDocWebApplication
                     {
                       {"x-logo", new Microsoft.OpenApi.Any.OpenApiObject
                         {
-                           {"url", new Microsoft.OpenApi.Any.OpenApiString("https://blog.christian-schou.dk/content/images/size/w256h256/2022/08/cropped-cs-logo-color-retina.png")},
+                           {"url", new Microsoft.OpenApi.Any.OpenApiString("https://www.seekpng.com/png/detail/439-4390559_paris-api-docs-logo.png")},
                            { "altText", new Microsoft.OpenApi.Any.OpenApiString("Your logo alt text here")}
                         }
                       }
