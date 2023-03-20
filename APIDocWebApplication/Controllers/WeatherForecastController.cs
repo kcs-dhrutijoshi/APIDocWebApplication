@@ -86,6 +86,9 @@ namespace APIDocWebApplication.Controllers
         public ActionResult<Order> GetOrder([FromQuery, SwaggerParameter("Order ID", Required = true)] int orderId)
         {
             List<Order> orders = new List<Order>();
+            List<Address> addresses = new List<Address>();
+            addresses.Add(new Address() { Country = "India", State = "Gujarat", City = "Ahmedabad", Zipcode = 380007 });
+            addresses.Add(new Address() { Country = "India", State = "Gujarat", City = "Ahmedabad", Zipcode = 380015 });
 
             orders.Add(new Order
             {
@@ -93,15 +96,19 @@ namespace APIDocWebApplication.Controllers
                 OrderId = 8427,
                 CustomerName = "Christian Schou",
                 Address = "Some Address here",
-                OrderValue = "87429,8236 DKK"
-            });
+                OrderValue = "87429,8236 DKK",
+                AvailableColors = new string[] { "Red", "Green", "Blue" },
+                ListOfAddress = addresses.ToArray()
+            }) ;
             orders.Add(new Order
             {
                 Id = 1,
                 OrderId = 3265,
                 CustomerName = "John Doe",
                 Address = "Johns address here",
-                OrderValue = "236,255 DKK"
+                OrderValue = "236,255 DKK",
+                AvailableColors = new string[] { "White", "Black", "Gray" },
+                ListOfAddress = addresses.ToArray()
             });
 
             return StatusCode(Microsoft.AspNetCore.Http.StatusCodes.Status200OK, orders.FirstOrDefault(x => x.OrderId == orderId));
